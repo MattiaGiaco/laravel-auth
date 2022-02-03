@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>Boolpress admin @yield('title')</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -27,8 +27,14 @@
                     Vai al sito
                 </a>
                 @auth
+                    <a class="navbar-brand" href="{{ route('admin.index') }}">
+                        Dashboard
+                    </a>
                     <a class="navbar-brand" href="{{ route('admin.post.index') }}">
-                        Posts
+                        Elenco posts
+                    </a>
+                    <a class="navbar-brand" href="{{ route('admin.post.create') }}">
+                        Crea post
                     </a>
                 @endauth
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
